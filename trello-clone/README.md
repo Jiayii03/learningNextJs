@@ -37,4 +37,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ```bash
 npx create-next-app --tailwind trello-clone
+npm run dev
 ```
+## Explain
+
+`[...]` is meant to handle dynamic routes. For example, if you create a directory named `[todoId]` inside the `[todos]`, it suggests that this directory will be used to handle dynamic routes where todoId can be any value.
+
+## Reference
+- https://serpapi.com/dashboard
+- https://mockapi.io/projects

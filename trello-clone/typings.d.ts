@@ -4,3 +4,9 @@ export type Todo = {
     title: string;
     completed: boolean;
 }
+
+export interface Product {
+    id?: number;
+    product: string;
+    price: string;
+  }

@@ -13,6 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Next.Js Introduction Project</title>
+      </head>
       <body>
         <Header />
         {children}

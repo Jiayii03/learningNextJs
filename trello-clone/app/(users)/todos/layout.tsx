@@ -7,6 +7,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Todos Page</title>
+      </head>
       <body>
         <main className="flex">
             <div>
