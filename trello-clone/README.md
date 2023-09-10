@@ -49,3 +49,5 @@ Click on the end of a tag, Ctrl+Spacebar to import the component automatically
 - https://www.npmjs.com/package/react-avatar
 - https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/about/installation.md
 - https://github.com/pmndrs/zustand
+- https://platform.openai.com/docs/api-reference/authentication
+- https://github.com/openai/openai-node/discussions/217
