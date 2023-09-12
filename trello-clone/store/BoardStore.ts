@@ -30,6 +30,9 @@ interface BoardState {
 
   addTask: (todo: string, columnId: TypedColumn, image?: File | null) => void;
   deleteTask: (taskIndex: number, todoId: Todo, id: TypedColumn) => void;
+
+  darkMode: boolean;
+  setDarkMode: (enableDarkMode: boolean) => void;
 }
 
 export const useBoardStore = create<BoardState>((set, get) => ({
@@ -136,7 +139,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         }
       }
     })
-  
+  },
 
-  }
+  darkMode: false,
+  setDarkMode: (enableDarkMode: boolean) => set( {darkMode: enableDarkMode}),
 }));

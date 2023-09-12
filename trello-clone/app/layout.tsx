@@ -1,7 +1,10 @@
+'use client'
+
 import Modal from "@/components/Modal";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { useBoardStore } from "@/store/BoardStore";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,9 +18,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+  const [darkMode] = useBoardStore((state) => [state.darkMode])
   return (
     <html lang="en">
-      <body className="bg-[#F5F6F8]">
+      <body className={`${darkMode ? "bg-[#07101e]" : "bg-[#F5F6F8]"}`}>
         
         {children}
         <Modal />
