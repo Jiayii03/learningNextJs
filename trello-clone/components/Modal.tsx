@@ -44,9 +44,7 @@ export default function Modal() {
         className="relative z-10"
         onClose={closeModal}
       >
-        {/*
-          Use one Transition.Child to apply one transition to the backdrop...
-        */}
+        {/* there are two Transition.Child components. The first one creates a background overlay when the modal is visible, and the second one animates the modal content. */}
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -56,15 +54,16 @@ export default function Modal() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
+          {/* This div is to give the background blurry effect when the modal is open */}
           <div className="fixed inset-0 bg-black bg-opacity-25  " />
         </Transition.Child>
 
-        {/*
-          ...and another Transition.Child to apply a separate transition
-          to the contents.
-        */}
-
+        {/* overflow-y-auto: enables vertical scrolling when the content exceeds the viewport height. */}
+        {/* This div spans across the whole page */}
         <div className="fixed inset-0 overflow-y-auto">
+          {/* This div is to center the modal content */}
+          {/* items-center: center the flexbox vertically */}
+          {/* justify-center: center the flexbox horizontally */}
           <div className="flex min-h-full items-center justify-center p-4 text-center">
             <Transition.Child
               as={Fragment}
@@ -75,6 +74,7 @@ export default function Modal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
+              {/* This is the start of the dialog panel */}
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
@@ -82,7 +82,7 @@ export default function Modal() {
                 >
                   Add a Task
                 </Dialog.Title>
-
+                {/* This is for the input field */}
                 <div className="mt-2">
                   <input
                     type="text"
@@ -92,13 +92,15 @@ export default function Modal() {
                     className="w-full border border-gray-300 rounded-md outline-none p-5"
                   />
                 </div>
+
+                {/* This is for the radio group */}
                 <TaskTypeRadioGroup />
 
                 <div>
                   <button
                     type="button"
                     onClick={() => {
-                      imagePickerRef.current?.click();
+                      imagePickerRef.current?.click(); // when this button is clicked anywhere, it will trigger and actually click the hidden input element
                     }}
                     className="w-full border border-gray-300 rounded-md outline-none p-5 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   >
@@ -119,7 +121,7 @@ export default function Modal() {
                   )}
                   <input
                     type="file"
-                    ref={imagePickerRef}
+                    ref={imagePickerRef} // imagePickerRef is a reference to the hidden input element
                     hidden
                     onChange={(e) => {
                       if (!e.target.files![0].type.startsWith("image/")) return;
@@ -127,6 +129,7 @@ export default function Modal() {
                     }}
                   />
                   <div className="mt-2">
+                    {/* focus-visible: receives focus, but only if the user is interacting with the page using a keyboard or similar input device */}
                     <button
                       type="submit"
                       className="bg-blue-100 text-blue-900 p-2 rounded-md focus-visible:ring-2 focus-visible:ring-blue-900 focus:outline-none focus-visible:ring-offset-2 disabled:text-gray-300 disabled:bg-gray-100"
@@ -136,8 +139,6 @@ export default function Modal() {
                     </button>
                   </div>
                 </div>
-
-                {/* ... */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
