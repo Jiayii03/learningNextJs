@@ -3,6 +3,7 @@ import { Draggable, Droppable } from "react-beautiful-dnd";
 import ToDoCard from "./ToDoCard";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { useBoardStore } from "@/store/BoardStore";
+import { useModalStore } from "@/store/ModalStore";
 
 type Props = {
   id: TypedColumn;
@@ -21,7 +22,16 @@ const idToColumnText: {
 };
 
 function Column({ id, todos, index }: Props) {
-  const [searchString] = useBoardStore((state) => [state.searchString]);
+  const [searchString, setNewTaskType] = useBoardStore((state) => [
+    state.searchString,
+    state.setNewTaskType,
+  ]);
+  const openModal = useModalStore((state) => state.openModal);
+
+  const handleAddTodo = () => {
+    setNewTaskType(id); // so that everytime the plus icon is clicked, the correct column will automatically be selected
+    openModal();
+  };
 
   return (
     <Draggable draggableId={id} index={index}>
@@ -46,15 +56,26 @@ function Column({ id, todos, index }: Props) {
                 <h2 className="flex justify-between font-bold text-xl p-2">
                   {idToColumnText[id]}
                   <span className="text-gray-500 bg-gray-200 rounded-full px-2 py-1 text-sm font-normal">
-                    {!searchString ? todos.length : todos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase())).length}
+                    {!searchString
+                      ? todos.length
+                      : todos.filter((todo) =>
+                          todo.title
+                            .toLowerCase()
+                            .includes(searchString.toLowerCase())
+                        ).length}
                   </span>
                 </h2>
 
                 <div className="space-y-2">
                   {todos.map((todo, index) => {
-
                     // if the todo's title does not contain the searchString, then don't render it
-                    if (searchString && !todo.title.toLowerCase().includes(searchString.toLowerCase())) return null;
+                    if (
+                      searchString &&
+                      !todo.title
+                        .toLowerCase()
+                        .includes(searchString.toLowerCase())
+                    )
+                      return null;
 
                     return (
                       <Draggable
@@ -81,7 +102,10 @@ function Column({ id, todos, index }: Props) {
 
                   <div className="flex items-end justify-end p-2">
                     <button className="text-green-500 hover:text-green-600">
-                      <PlusCircleIcon className="h-10 w-10" />
+                      <PlusCircleIcon
+                        className="h-10 w-10"
+                        onClick={handleAddTodo}
+                      />
                     </button>
                   </div>
                 </div>

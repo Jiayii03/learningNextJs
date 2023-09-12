@@ -51,3 +51,4 @@ Click on the end of a tag, Ctrl+Spacebar to import the component automatically
 - https://github.com/pmndrs/zustand
 - https://platform.openai.com/docs/api-reference/authentication
 - https://github.com/openai/openai-node/discussions/217
+- https://headlessui.com/react/dialog

@@ -17,18 +17,18 @@ function Header() {
   const [loading, setLoading] = useState<boolean>(false);
   const [suggestion, setSuggestion] = useState<string>("");
 
-  useEffect(() => {
-    if (board.columns.size === 0) return; // board.columns is a map, so use size
-    setLoading(true);
+  // useEffect(() => {
+  //   if (board.columns.size === 0) return; // board.columns is a map, so use size
+  //   setLoading(true);
 
-    const fetchSuggestionFunc = async () => {
-      const suggestion = await fetchSuggestion(board);
-      setSuggestion(suggestion);
-      setLoading(false);
-    };
+  //   const fetchSuggestionFunc = async () => {
+  //     const suggestion = await fetchSuggestion(board);
+  //     setSuggestion(suggestion);
+  //     setLoading(false);
+  //   };
 
-    fetchSuggestionFunc();
-  }, [board]);
+  //   fetchSuggestionFunc();
+  // }, [board]);
 
   return (
     <header>
@@ -78,7 +78,8 @@ function Header() {
               loading && "animate-spin"
             }`}
           />
-          {suggestion && !loading ? suggestion : "GPT is summarsing your tasks for the day..."}
+          {/* {suggestion && !loading ? suggestion : "GPT is summarsing your tasks for the day..."} */}
+          GPT is summarising your tasks for the day...
         </p>
       </div>
     </header>

@@ -3,11 +3,10 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request){
     const { todos } = await request.json(); // get the todos from the request body
-    console.log(todos);
 
     // communicate with openAI GPT
     const response = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
+        model: "gpt-3.5-turbo", // need billing enabled to use this model
         temperature: 0.8,
         n: 1,
         stream: false,
@@ -24,8 +23,6 @@ export async function POST(request: Request){
     })
 
     const { data } = response;
-    console.log("Data is: ", data);
-    console.log(data.choices[0].message)
 
     return NextResponse.json(data.choices[0].message)
 }
