@@ -37,6 +37,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## References
 - https://www.npmjs.com/package/class-variance-authority
+- https://upstash.com/
+- https://www.npmjs.com/package/next-auth
+
+## Additional Packages
 - npm install lucide-react
 - npm install clsx tailwind-merge
-- https://upstash.com/
+- npm install @upstash/redis@1.20.2
+- npm install next-auth
+- npm install react-hot-toast
+
+## Github Repository
+https://github.com/joschan21/nextjs-realtime-chat/tree/master
+
