@@ -40,12 +40,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - https://upstash.com/
 - https://www.npmjs.com/package/next-auth
 
-## Additional Packages
+## Additional Dependencies 
 - npm install lucide-react
 - npm install clsx tailwind-merge
 - npm install @upstash/redis@1.20.2
 - npm install next-auth
 - npm install react-hot-toast
+- npm install @tailwindcss/form
+- npm install react-hook-form @hookform/resolvers zod axios
 
 ## Github Repository
 https://github.com/joschan21/nextjs-realtime-chat/tree/master

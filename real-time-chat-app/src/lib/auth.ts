@@ -20,7 +20,7 @@ function getGoogleCredentials() {
 
 // an object that holds the configuration options for 
 export const authOptions: NextAuthOptions = {
-    adapter: UpstashRedisAdapter(db),
+    adapter: UpstashRedisAdapter(db), // auth session will be stored in Redis
     session: {
         strategy: "jwt", // jwt means JSON Web Token, meaning we don't handle the session on the database so that we can verify the session in middleware 
     },
