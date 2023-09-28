@@ -28,6 +28,8 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
     try {
       const validatedEmail = addFriendValidator.parse({ email })
 
+      // TODO: Add friend
+      // call api/friends/add
       await axios.post('/api/friends/add', {
         email: validatedEmail,
       })
