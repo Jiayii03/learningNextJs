@@ -43,7 +43,7 @@ const AddFriendButton: FC<AddFriendButtonProps> = ({}) => {
 
       if (error instanceof AxiosError) {
         console.log(error)
-        setError('email', { message: error.response?.data })
+        setError('email', { message: `Error ${error.response?.status} ${error.response?.data}`})
         return
       }
 
