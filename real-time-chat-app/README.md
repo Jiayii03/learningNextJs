@@ -52,3 +52,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Github Repository
 https://github.com/joschan21/nextjs-realtime-chat/tree/master
 
+## Additional Notes
+The web server is connected to the redis database, so, no matter which device is accessing the web page, the data will be synchronized.
