@@ -6,7 +6,7 @@ import React from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
 
-function page() {
+function Page() {
   const [isLoading, setIsLoading] = useState(false);
 
   async function loginWithGoogle() {
@@ -15,8 +15,8 @@ function page() {
       // just to test if the toast is working or not
       // throw new Error('This is a test error');
 
-      await signIn("google");
-
+      await signIn("google", { callbackUrl: '/dashboard' });
+ 
     } catch (error) {
       toast.error('Something went wrong with your login. Please try again.')
     } finally {
@@ -27,7 +27,7 @@ function page() {
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       {/* the most outer layer, make it a flex and justify-center so that the div moves to the center of the screen*/}
-      <div className="w-full flex flex-col items-center max-w-md space-y-8 ">
+      <div className="w-full flex flex-col max-w-md space-y-8 ">
         <div className="flex flex-col items-center gap-8">
           {/* flex-col: flex direction is column, items-center aligns the item vertically (according to flex direction) */}
           logo
@@ -43,7 +43,7 @@ function page() {
           onClick={loginWithGoogle}
         >
           {/* This svg part is copied directly from github source*/}
-          {isLoading ? null : (
+          {isLoading ? null : ( // if loading, don't show the svg
             <svg
               className="mr-2 h-4 w-4"
               aria-hidden="true"
@@ -80,4 +80,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

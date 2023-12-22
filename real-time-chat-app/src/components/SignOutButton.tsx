@@ -19,7 +19,7 @@ function SignOutButton({ ...props }) {
       onClick={async () => {
         setIsSigningOut(true);
         try {
-          await signOut();
+          await signOut({callbackUrl: "/login"})
         } catch (error) {
           toast.error("There was an error signing out");
         } finally {

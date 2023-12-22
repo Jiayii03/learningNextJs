@@ -6,8 +6,18 @@ async function page() {
 
   const session = await getServerSession(authOptions)
 
+  if (!session) {
+    // Render different HTML when there is no login session
+    return (
+      <div>
+        <p>You are not logged in.</p>
+        <Button>Login</Button>
+      </div>
+    )
+  }
+
   return (
-    <pre>{JSON.stringify(session)}</pre>
+    <div>{JSON.stringify(session)}</div>
   )
 }
 
