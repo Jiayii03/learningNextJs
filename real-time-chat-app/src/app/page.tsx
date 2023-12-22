@@ -5,6 +5,6 @@ import Image from 'next/image'
 export default async function Home() {
 
   return (
-    <Button variant='ghost'>Hello</Button>
+    <Button variant='default' size='lg'>Hello</Button>
   )
 }

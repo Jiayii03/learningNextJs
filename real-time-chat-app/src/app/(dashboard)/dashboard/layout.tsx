@@ -49,7 +49,7 @@ async function layout({ children }: LayoutProps) {
   return (
     <div className="w-full flex h-screen">
       {/* flex-grow and flex-shrink determines whether the flex container grow or shrink when there's extra space */}
-      <div className="flex h-full w-full max-w-xs grow-0 flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+      <div className="flex h-full w-full max-w-xs grow-0 shrink-0 flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
         <Link href="/dashboard" className="flex h-16 shrink-0 items-center">
           <Icons.Logo className="h-8 w-auto text-indigo-600" />
         </Link>
@@ -63,7 +63,7 @@ async function layout({ children }: LayoutProps) {
           {/* unordered list of navigation sidebar */}
           <ul role="list" className="flex flex-1 flex-col gap-y-7">
             {/* chat section */}
-            <li>// chats that this user has</li>
+            <li>chats that this user has</li>
 
             {/* overview section */}
             <li>

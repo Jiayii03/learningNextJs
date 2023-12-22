@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Link to Youtube Tutorial: https://youtu.be/NlXfg5Pxxh8?si=IXfhdpwgq4H59ye7
+
 ## Getting Started
 
 First, run the development server:
@@ -36,20 +38,26 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 ## References
+
+- https://tailwindcss.com/docs/guides/nextjs
 - https://www.npmjs.com/package/class-variance-authority
 - https://upstash.com/
 - https://www.npmjs.com/package/next-auth
 
 ## Additional Dependencies 
+
+- npm install -D tailwindcss postcss autoprefixer
+- npm install class-variance-authority
 - npm install lucide-react
 - npm install clsx tailwind-merge
 - npm install @upstash/redis@1.20.2
 - npm install next-auth
+- npm install @next-auth/upstash-redis-adapter
 - npm install react-hot-toast
 - npm install @tailwindcss/form
 - npm install react-hook-form @hookform/resolvers zod axios
 
-## Github Repository
+## Source Code - Github Repository
 https://github.com/joschan21/nextjs-realtime-chat/tree/master
 
 ## Additional Notes

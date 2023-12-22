@@ -2,7 +2,9 @@ import { UpstashRedisAdapter } from "@next-auth/upstash-redis-adapter";
 import { NextAuthOptions } from "next-auth";
 import { db } from "./db";
 import GoogleProvider from "next-auth/providers/google"
+import GitHubProvider from "next-auth/providers/github";
 
+// to check if the environment variables are set up correctly
 function getGoogleCredentials() {
     const clientId = process.env.GOOGLE_CLIENT_ID;
     const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
@@ -20,7 +22,7 @@ function getGoogleCredentials() {
 
 // an object that holds the configuration options for 
 export const authOptions: NextAuthOptions = {
-    adapter: UpstashRedisAdapter(db), // auth session will be stored in Redis
+    adapter: UpstashRedisAdapter(db), // when someone logs in, the session is automatically stored in the redis database
     session: {
         strategy: "jwt", // jwt means JSON Web Token, meaning we don't handle the session on the database so that we can verify the session in middleware 
     },
@@ -32,6 +34,9 @@ export const authOptions: NextAuthOptions = {
             clientId: getGoogleCredentials().clientId,
             clientSecret: getGoogleCredentials().clientSecret,
         }),
+        // GitHubProvider({
+            
+        // })
     ],
     callbacks: {
         async jwt ({ token, user }){
@@ -61,8 +66,8 @@ export const authOptions: NextAuthOptions = {
             return session
         },
 
-        redirect() {
-            return '/dashboard'
-        }
+        // redirect() {
+        //     return '/dashboard'
+        // }
     },
 }
